@@ -5,8 +5,9 @@ import connection from "./config/db.js";
 import VeterinaryRoutes from "./routes/veterinaryRoutes.js";
 import patientsRoutes from "./routes/patientsRouter.js";
 import bodyParser from "body-parser";
+dotenv.config()
 const app = express();
-const domainsAllowed = [process.env.FRONTEND_URL];
+const domainsAllowed = [process.env.FRONTEND_URL.toString()];
 const corsOptions = {
   origin: function (origin, callback) {
     if (domainsAllowed.indexOf(origin) !== -1) {
@@ -20,7 +21,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-dotenv.config();
 connection();
 app.use("/api/veterinaries", VeterinaryRoutes);
 app.use("/api/patients", patientsRoutes);
