@@ -1,8 +1,10 @@
 import nodemailer from "nodemailer";
 const emailRegistry = async ({ name, email, token }) => {
-  const transport = nodemailer.createTransport({
-    service: "hotmail",
-    auth: {
+  const transfer = nodemailer.createTransport({
+    service: "gmail",
+    port: 587,
+    secure: false,
+    auth:{ 
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASSWORD,
     }
