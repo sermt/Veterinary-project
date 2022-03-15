@@ -1,11 +1,11 @@
 import nodemailer from "nodemailer";
 const emailRegistry = async ({ name, email, token }) => {
   var transport = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
+    host: process.env.EMAIL_HOST.toString(),
+    port: process.env.EMAIL_PORT.toString(),
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASSWORD,
+      user: process.env.EMAIL_USER.toString(),
+      pass: process.env.EMAIL_PASSWORD.toString(),
     },
   });
 
@@ -16,7 +16,7 @@ const emailRegistry = async ({ name, email, token }) => {
       subject: "Account verification",
       text: "Please verify your account",
       html: `<h1>Hello ${name}!</h1><br /><p>Please verify your account,
-        <a href="http://localhost:3000/confirm/${token}">Clic here to verify</a></p><br />
+        <a href="https://confident-hawking-834487.netlify.app/confirm/${token}">Clic here to verify</a></p><br />
           <p>if you don't create a new account, please ignore this message</p>`,
     });
    
