@@ -7,7 +7,8 @@ import patientsRoutes from "./routes/patientsRouter.js";
 import bodyParser from "body-parser";
 dotenv.config()
 const app = express();
-const domainsAllowed = [process.env.FRONTEND_URL.toString(),"https://62303d06c335ef00088ae53c--confident-hawking-834487.netlify.app"];
+app.use(cors());
+/* const domainsAllowed = [process.env.FRONTEND_URL.toString(),"https://62303d06c335ef00088ae53c--confident-hawking-834487.netlify.app"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (domainsAllowed.indexOf(origin) !== -1) {
@@ -17,8 +18,8 @@ const corsOptions = {
       callback(new Error("Not allowed by Cors policy"))
     }
   },
-};
-app.use(cors());
+}; */
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 connection();

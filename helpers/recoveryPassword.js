@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 const recoveryPassword = async ({ name, email, token }) => {
-  const transport = nodemailer.createTransport("SMTP", {
+  const transport = nodemailer.createTransport({
     service: "hotmail",
     auth: {
       user: process.env.EMAIL_USER,
