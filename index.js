@@ -6,7 +6,7 @@ import VeterinaryRoutes from "./routes/veterinaryRoutes.js";
 import patientsRoutes from "./routes/patientsRouter.js";
 import bodyParser from "body-parser";
 const app = express();
-const domainsAllowed = ["http://localhost:3000"];
+const domainsAllowed = [process.env.FRONTEND_URL];
 const corsOptions = {
   origin: function (origin, callback) {
     if (domainsAllowed.indexOf(origin) !== -1) {
