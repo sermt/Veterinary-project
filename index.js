@@ -7,7 +7,7 @@ import patientsRoutes from "./routes/patientsRouter.js";
 import bodyParser from "body-parser";
 dotenv.config()
 const app = express();
-const domainsAllowed = [process.env.FRONTEND_URL.toString()];
+const domainsAllowed = [process.env.FRONTEND_URL.toString(),"187.204.132.120"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (domainsAllowed.indexOf(origin) !== -1) {
@@ -26,5 +26,5 @@ app.use("/api/veterinaries", VeterinaryRoutes);
 app.use("/api/patients", patientsRoutes);
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-  console.log("inicio del server");
+  console.log("Server stars");
 });
