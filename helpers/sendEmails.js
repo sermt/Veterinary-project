@@ -11,7 +11,7 @@ const emailRegistry = async ({ name, email, token }) => {
 });
 
   try {
-    const info = await transport.sendMail({
+    const info = await transfer.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
       subject: "Account verification",
