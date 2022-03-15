@@ -12,7 +12,7 @@ const emailRegistry = async ({ name, email, token }) => {
 
   try {
     const info = await transport.sendMail({
-      from: "Vet App",
+      from: process.env.EMAIL_USER,
       to: email,
       subject: "Account verification",
       text: "Please verify your account",
@@ -26,7 +26,9 @@ const emailRegistry = async ({ name, email, token }) => {
         console.log('Email sent: ' + info.response);
       }});
    
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default emailRegistry;
