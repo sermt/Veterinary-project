@@ -1,4 +1,4 @@
-import mailjet  from 'node-mailjet'
+import nodemailer from "nodemailer";
 const recoveryPassword = async ({ name, email, token }) => {
 
   const transfer = nodemailer.createTransport({
