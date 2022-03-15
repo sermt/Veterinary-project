@@ -54,7 +54,7 @@ const updatePatient = async (req, res) => {
     patient.email = email || patient.email;
     patient.owner = owner || patient.owner;
     patient.date = date || patient.date;
-    patient.telephone = date || patient.telephone;
+    patient.telephone = telephone || patient.telephone;
     const updatedPatient = await patient.save();
 
     return res.json(updatedPatient);
