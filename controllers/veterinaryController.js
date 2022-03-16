@@ -6,7 +6,19 @@ import recoveryPassword from "../helpers/recoveryPassword.js";
 
 const authentication = async (req, res) => {
   const { email, password } = req.body;
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
 
+  // validate email
+  if(!validateEmail(email)){
+    const error = new Error(" Invalid password or user!");
+    return res.status(404).json({ msg: error.message });
+  }
   //check if user exist
   const user = await Veterinary.findOne({ email });
   if (!user) {
