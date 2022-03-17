@@ -15,7 +15,7 @@ const authentication = async (req, res) => {
   };
 
   // validate email
-  if(!validateEmail(email)){
+  if (!validateEmail(email)) {
     const error = new Error(" Invalid password or user!");
     return res.status(404).json({ msg: error.message });
   }
@@ -49,9 +49,8 @@ const authentication = async (req, res) => {
   }
 };
 const checkToken = async (req, res) => {
-  const { token } = req.params;
-
   try {
+    const { token } = req.params;
     const validToken = await Veterinary.findOne({ token });
     if (!validToken) {
       const error = new Error(" invalid token!");
@@ -85,7 +84,6 @@ const confirm = async (req, res) => {
 };
 const forgetPassword = async (req, res) => {
   const { email } = req.body;
-
   const user = await Veterinary.findOne({ email });
   if (!user) {
     const error = new Error(" User doesn't exist!");

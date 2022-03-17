@@ -9,9 +9,13 @@ const addPatient = async (req, res) => {
   } catch (error) {}
 };
 const getPatients = async (req, res) => {
-  
-  const patients = await Patients.find().where("vet").equals(req.vet);
-  res.json(patients);
+  try {
+    const patients = await Patients.find().where("vet").equals(req.vet);
+    return res.json(patients);
+  } catch (error) {
+    console.log(error);
+  }
+ 
 };
 const getPatient = async (req, res) => {
   try {
