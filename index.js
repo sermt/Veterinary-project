@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import connection from "./config/db.js";
-import veterinaryRoutes from "./routes/veterinaryRouter";
+import veterinaryRoutes from "./routes/veterinaryRouter.js";
 import patientsRoutes from "./routes/patientsRouter.js";
 import bodyParser from "body-parser";
 dotenv.config()
